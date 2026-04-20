@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        run: actions/checkout@v4
+        uses: : actions/checkout@v4
       - name: Run Secret Scan
         run: echo "Scanning for leaked passwords and AWS keys..."
     
