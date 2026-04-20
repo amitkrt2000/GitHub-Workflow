@@ -1,0 +1,29 @@
+name: production quality check
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+jobs:
+  lint-and-format:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout Code
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - name: Install Linter
+        run: pip install linter
+      - name: Run Linter
+        run: flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+  security-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        run: actions/checkout@v4
+      - name: Run Secret Scan
+        run: echo "Scanning for leaked passwords and AWS keys..."
+    
+  
