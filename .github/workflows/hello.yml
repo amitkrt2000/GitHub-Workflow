@@ -1,0 +1,16 @@
+name: hello workflow
+on: push
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: User ko hello bolna
+        run: echo hello $USER
+  introduction:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: user ka naam poochna 
+        run: echo what is your name?
+    
+    
+      
